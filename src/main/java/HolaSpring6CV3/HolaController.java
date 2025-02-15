@@ -11,5 +11,6 @@ public class HolaController {
     @GetMapping
     public String holaMundo() {
         return "Hola Mundo desde Spring Bgfdgdfgdfgooot!";
+        return "Hola Mundo desde Spring Bgfdgdfgdfgooot!";
     }
 }
