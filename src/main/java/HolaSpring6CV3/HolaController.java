@@ -1,16 +1,15 @@
 package HolaSpring6CV3;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/") // Define la ruta base
+@Controller
 public class HolaController {
 
-    @GetMapping
-    public String holaMundo() {
-        return "Hola Mundo desde Spring gfdgd!";
-        
+    @GetMapping("/")
+    public String holaSpring(Model model) {
+        model.addAttribute("mensaje", "Hola Springg");
+        return "index";
     }
 }
