@@ -8,6 +8,7 @@ public class HolaSpring6Cv3Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HolaSpring6Cv3Application.class, args);
+
 	}
 
 }
