@@ -10,7 +10,7 @@ public class HolaController {
 
     @GetMapping
     public String holaMundo() {
-        return "Hola Mundo desde Spring gfdgdfgdgd!";
+        return "Hola Mundo desde Spring gfdgd!";
         
     }
 }
