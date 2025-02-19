@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HolaSpring6Cv3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HolaSpring6Cv3Application.class, args);
-		System.out.println("hola mundo");
+		SpringApplication.run(HolaSpring6Cv3Application.class, args)
 	}
 
 }
