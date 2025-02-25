@@ -11,14 +11,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 
 public class SecurityConfig {
+    
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+        
             .csrf().disable()  // Desactiva CSRF para facilitar el acceso desde la aplicación móvil
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/api/auth/**").permitAll()  // Permitir acceso sin autenticación a la app móvil
-                .requestMatchers("/admin").hasRole("ADMIN")
-                .requestMatchers("/home").authenticated()
+            .requestMatchers("/api/auth/**").permitAll()  // Permitir acceso sin autenticación a la app móvil
+            .requestMatchers("/admin").hasRole("ADMIN")  // Acceso solo para usuarios con rol ADMIN a la ruta /admin
+           // .requestMatchers("/admin/eliminar/**").hasRole("ADMIN")  // Permite que los usuarios autenticados puedan eliminar registros
+            .requestMatchers("/home").authenticated()  // Requiere autenticación para acceder a /home
                 .anyRequest().permitAll()
             )
             .formLogin((form) -> form
@@ -26,6 +29,11 @@ public class SecurityConfig {
                 .defaultSuccessUrl("/home", true)  // Redirige a /home tras login exitoso
                 .permitAll()
             )
+            // .formLogin(login -> login
+            // .loginPage("/login/admin")
+            // .defaultSuccessUrl("/admin/usuarios", true)
+            // .permitAll()
+            // )
             .logout((logout) -> logout.permitAll());
 
         return http.build();
