@@ -5,48 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1552302896-5c1349f3337d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            color: white;
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-            display: block;
-            margin-top: 15px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        /* Tu estilo aquí... */
     </style>
+    <script>
+        function deleteUser(id) {
+            if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
+                fetch(`/admin/users/${id}/delete`, {
+                    method: 'POST', // Usamos POST para enviar el DELETE
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = "/admin"; // Redirigir después de eliminar
+                    } else {
+                        alert("Error al eliminar el usuario.");
+                    }
+                }).catch(error => {
+                    alert("Error en la solicitud: " + error);
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Bienvenido, Administrador</h1>
         <a href="/logout">Cerrar Sesión</a>
+        <h2>Usuarios</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Lista de usuarios desde la API -->
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id}"></td>
+                    <td th:text="${usuario.nombre}"></td>
+                    <td th:text="${usuario.email}"></td>
+                    <td>
+                        <button th:onclick="'deleteUser(' + ${usuario.id} + ')'" type="button">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Agregar Usuario</h3>
+        <form action="/admin/users" method="post">
+            <input type="text" name="nombre" placeholder="Nombre de Usuario" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Agregar Usuario</button>
+        </form>
     </div>
 </body>
 </html>
