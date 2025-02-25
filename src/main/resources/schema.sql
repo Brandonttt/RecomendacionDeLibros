@@ -38,3 +38,11 @@ select * FROM roles
 select * FROM usuarios
 
 select * FROM usuario_roles
+
+SELECT id FROM usuarios WHERE email = 'admin@gmail.com';
+
+SELECT id FROM roles WHERE nombre = 'ROLE_ADMIN';
+
+INSERT INTO usuario_roles (usuario_id, rol_id) 
+VALUES ((SELECT id FROM usuarios WHERE email = 'admin@gmail.com'), 
+        (SELECT id FROM roles WHERE nombre = 'ROLE_ADMIN'));
