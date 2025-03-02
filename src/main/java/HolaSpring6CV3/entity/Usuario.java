@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -32,6 +33,10 @@ public class Usuario {
 
     @Column(nullable = false)
     private String password;
+
+     @Lob
+    @Column(name = "imagen", columnDefinition = "LONGBLOB") // Cambiado a LONGBLOB para soportar imágenes más grandes
+    private byte[] imagen;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -83,7 +88,13 @@ public class Usuario {
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
+    public byte[] getImagen() {
+        return imagen;
+    }
 
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
    
     
 }
