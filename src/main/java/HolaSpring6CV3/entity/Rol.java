@@ -53,5 +53,7 @@ public class Rol {
     public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+
+    
     
 }
