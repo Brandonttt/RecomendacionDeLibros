@@ -9,3 +9,14 @@ Para ejecutarv este archivo
 4.- En el navegador de su preferencia ingresar "http://localhost:8085" 
 
 5.- Username y password = "admin"
+
+
+---  CONFIGURACIÓN DOCKER  ---
+
+1.- Tener instaldo el Docker Desktop
+
+2.- Generar el archivo "Dockerfile" en la raiz del proyecto
+
+3.- Generar el Docker-compose.yml
+
+4.- escribir en la terminal el siguiente comando "docker-compose up --build"
