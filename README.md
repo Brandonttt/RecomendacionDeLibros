@@ -22,8 +22,8 @@
 
     ```properties
     spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
-    spring.datasource.username=tu_usuario
-    spring.datasource.password=tu_contraseña
+    spring.datasource.username=admin
+    spring.datasource.password=admin
     spring.jpa.hibernate.ddl-auto=update
     ```
 
@@ -50,7 +50,7 @@
     ./mvnw spring-boot:run
     ```
 
-2. La aplicación estará disponible en `http://localhost:8080`.
+2. La aplicación estará disponible en `http://localhost:8085`.
 
 ## Ejecución de Pruebas
 
