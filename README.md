@@ -60,7 +60,7 @@
     ./mvnw test
     ```
 
-## Ejecución de Pruebas
+## Capturas de Pamtalla
 ---  CONFIGURACIÓN DOCKER  ---
 
 1.- Tener instaldo el Docker Desktop
