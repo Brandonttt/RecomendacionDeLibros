@@ -29,7 +29,9 @@
 
         .container h1 {
             margin-bottom: 1.5rem;
+            
         }
+   
 
         .menu-button {
             background-color: #28a745;
@@ -71,7 +73,9 @@
 <body>
     <div class="container">
         <h1>HOME</h1>
-        <p class="welcome-message"> "<span th:text="${nombreUsuario}" style="color: #ffffff; font-size: 34px;">Usuario</span>" c:</p>
+        <p class="welcome-message"> <span th:text="${nombreUsuario}" style="color: #ffffff; font-size: 34px;">Usuario </span>   
+            <span style="font-size: 40px;">  =)</span>
+        </p>
         
         <a href="/libros" class="menu-button">Libros</a>
         <a href="/peliculas" class="menu-button">Películas</a>
