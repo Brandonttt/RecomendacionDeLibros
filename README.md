@@ -59,6 +59,13 @@
     ```sh
     ./mvnw test
     ```
+## Evidencias de funcionamiento
+1. Proceso de registro y login
+![image](https://github.com/user-attachments/assets/abff6a53-7ca6-426b-8ffd-fa8e77efc1ff)
+![image](https://github.com/user-attachments/assets/95b06577-e910-4119-ab32-7f038d49eae3)
+![image](https://github.com/user-attachments/assets/a25263af-9cf5-4c3f-9ec9-75ea076dea4a)
+
+
 
 ## Capturas de Pamtalla
 ---  CONFIGURACIÓN DOCKER  ---
