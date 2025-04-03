@@ -60,13 +60,13 @@
     ./mvnw test
     ```
 ## Evidencias de funcionamiento
-###1. Proceso de registro y login
+### 1. Proceso de registro y login
 ![image](https://github.com/user-attachments/assets/abff6a53-7ca6-426b-8ffd-fa8e77efc1ff)
 ![image](https://github.com/user-attachments/assets/95b06577-e910-4119-ab32-7f038d49eae3)
 ![image](https://github.com/user-attachments/assets/a25263af-9cf5-4c3f-9ec9-75ea076dea4a)
-###2. Funcionamiento caso de uso
+### 2. Funcionamiento caso de uso
 ![image](https://github.com/user-attachments/assets/5a246d5c-ccfd-4265-a711-339b5a02ae7e)
-###3. Diferencia de roles
+### 3. Diferencia de roles
 ![image](https://github.com/user-attachments/assets/dc04fd5f-2e60-4537-b2b5-647f4ec3b8cb)
 ![image](https://github.com/user-attachments/assets/42ac140f-0556-4b7e-a3be-af4e8ddd9c30)
 
