@@ -400,6 +400,7 @@
         
         <div class="navigation-buttons">
             <a href="/home" class="back-button">Volver al inicio</a>
+            <a href="/favoritos" class="favorites-link">Ver mis favoritos</a>
         </div>
     </div>
      <script>
@@ -581,13 +582,34 @@
                     });
                     
                     // Agregar evento para el botón de recomendar (aquí puedes implementar tu propia lógica)
-                    bookCard.querySelector('.recommend-button').addEventListener('click', function() {
+                   bookCard.querySelector('.recommend-button').addEventListener('click', function() {
                         const key = this.getAttribute('data-key');
-                        alert(`Libro recomendado: ${book.title}`);
-                        // Aquí podrías implementar la lógica para guardar la recomendación en tu backend
+                        const title = book.title;
+                        const author = authors;
+                        const coverUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : '';
+                        
+                        fetch('/favoritos/api/agregar', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: new URLSearchParams({
+                                libroId: key,
+                                titulo: title,
+                                autor: author,
+                                imagenUrl: coverUrl,
+                            }),
+                        })
+                            .then(response => response.text())
+                            .then(message => {
+                                alert(message);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Ocurrió un error al agregar el libro a favoritos.');
+                            });
                     });
                     
-                    // Agregar la tarjeta al grid
                     bookGrid.appendChild(bookCard);
                 });
             }
